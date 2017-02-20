@@ -11,7 +11,7 @@
         <%= link_to "Edit", edit_list_task_path(@list, task) %> |
         <%= link_to "Delete", list_task_path(@list, task),
                                  :data => {:confirm => "Are you sure?",
-                                                :method => "delete"} %>
+                                                :method => "delete"}, remote: true %>
       </li>
     <% end %>
   </ul>
@@ -22,7 +22,9 @@
 
 <hr>
 <%= link_to "Lists", lists_path %> |
+
+<!-- old -->
 <%= link_to "Delete List", list_path(@list),
                         :data => {:confirm => "Are you sure?",
-                                       :method => "delete"} %> |
+                                       :method => "delete"}, remote: true  %> |
 <%= link_to "New Task", new_list_task_path(@list), id: "new_task_link", class: "btn btn-default", remote: true %>

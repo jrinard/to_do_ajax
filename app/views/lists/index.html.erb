@@ -2,8 +2,11 @@
 
 <ul id="all_lists">
   <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list) %> |
-      <%= link_to "Edit", edit_list_path(list) %>
+    <li id="list_link_<%= list.id %>"><%= link_to list.name, list_path(list), id: "list_link" %> |
+      <%= link_to "Edit", edit_list_path(list), id: "edit_list_link", class: "btn btn-default", remote: true %> |
+      <%= link_to "Delete List", list_path(list),
+                              :data => {:confirm => "Are you sure?",
+                                             :method => "delete"}, remote: true  %>
     </li> <!-- passed in list into path so it can find the id -->
   <% end %>
 </ul><!-- Notice, too, that because we are in an each loop, we pass the object in as list instead of @list. -->

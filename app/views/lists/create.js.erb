@@ -1,4 +1,4 @@
 $('form').remove();
 $('#new_list_link').show();
 // $('ul p').remove();
-$('#all_lists').append('<li><%= @list.name %> | <%= link_to "Edit From Create.js", edit_list_path(@list), :class => "btn btn-default" %> | <%= link_to "Delete", list_path(@list), :data => {:confirm => "Are you sure?",:method => "delete"},:class => "btn btn-danger" %></li>')
+$('#all_lists').append('<li id="list_link_<%= @list.id %>"><%= @list.name %> | <%= link_to "Edit From Create.js", edit_list_path(@list), :class => "btn btn-default" %> | <%= link_to "Delete", list_path(@list), :data => {:confirm => "Are you sure?",:method => "delete"},:class => "btn btn-danger", remote: true %></li>')

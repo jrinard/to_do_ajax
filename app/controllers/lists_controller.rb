@@ -43,7 +43,10 @@ class ListsController < ApplicationController
   def destroy
     @list = List.find(params[:id])
     @list.destroy
-    redirect_to lists_path
+    respond_to do |format|
+      format.html { redirect_to lists_path }
+      format.js
+    end
   end
 
 # needed for create and update - needs to be on bottom
