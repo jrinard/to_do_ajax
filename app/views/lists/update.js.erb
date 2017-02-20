@@ -1,0 +1,3 @@
+$('#list_link_<%= @list.id %>').remove();
+
+$('#all_lists').append('<li id="list_link_<%= @list.id %>"><%= link_to @list.name, list_path(@list), id: "list_link" %> | <%= link_to "Edit from Update.js", edit_list_path(@list), id: "edit_list_link", class: "btn btn-default", remote: true %> | <%= link_to "Delete List", list_path(@list), :data => {:confirm => "Are you sure?", :method => "delete"}, remote: true  %></li>')

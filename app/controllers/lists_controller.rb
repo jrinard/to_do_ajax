@@ -20,7 +20,7 @@ class ListsController < ApplicationController
       respond_to do |format|
         format.html { redirect_to lists_path }
         format.js
-      end
+        end
     else
       render :new
     end
@@ -34,11 +34,14 @@ class ListsController < ApplicationController
   def update
     @list= List.find(params[:id])
     if @list.update(list_params)
-      redirect_to lists_path
-    else
-      render :edit
-    end
+      respond_to do |format|
+        format.html { redirect_to lists_path }
+        format.js
+      end
+  else
+    render :edit
   end
+end
 
   def destroy
     @list = List.find(params[:id])
