@@ -1,4 +1,4 @@
 $('form').remove();
 $('#new_task_link').show();
-// $('ul p').remove();
+$('ul p').remove();
 $('#list_tasks').append('<li><%= @task.description %> | <%= link_to "Edit From Create.js", edit_list_task_path(@list, @task), :class => "btn btn-default" %> | <%= link_to "Delete", list_task_path(@list, @task), :data => {:confirm => "Are you sure?",:method => "delete"},:class => "btn btn-danger" %></li>')

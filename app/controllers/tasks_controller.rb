@@ -38,10 +38,7 @@ class TasksController < ApplicationController
     @list = List.find(params[:list_id])
     @task = Task.find(params[:id])
     @task.destroy
-    respond_to do |format|
-      format.html { redirect_to list_path(@task.list) }
-      format.js
-    end
+    redirect_to list_path(@task.list)
   end
 
 private
